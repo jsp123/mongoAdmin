@@ -2,6 +2,7 @@
 
 date_default_timezone_set('America/Los_Angeles');
 
+
 require 'vendor/autoload.php';
 
 // Slim Configuration
@@ -18,8 +19,8 @@ $app = new \Slim\Slim($slimConfig);
 //$view->
 
 // Test Route
-$app->get('/', function(){
-    echo "Hello World!";
+$app->get('/', function() use ($app){
+    $app->render('master.html', array('test' => 'Hello, SlimTwig!'));
 });
 
 
